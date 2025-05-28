@@ -97,20 +97,20 @@ class ProjectInput {
       required: true,
     };
     const descriptionValidatable: Validatable = {
-      value: enteredTitle,
+      value: enteredDescription,
       required: true,
       minLength: 5,
     };
     const peopleValidatable: Validatable = {
-      value: enteredTitle,
+      value: enteredPeople,
       required: true,
       min: 1,
       max: 5,
     };
     if (
-      validate(titleValidatable) ||
-      validate(descriptionValidatable) ||
-      validate(peopleValidatable)
+      !validate(titleValidatable) ||
+      !validate(descriptionValidatable) ||
+      !validate(peopleValidatable)
     ) {
       alert("Invalit input");
       return;

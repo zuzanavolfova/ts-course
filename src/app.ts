@@ -73,6 +73,7 @@ class ProjectInput {
       this.templateElement.content,
       true
     );
+    
     this.element = importedNode.firstElementChild as HTMLFormElement;
     this.element.id = "user-input";
     this.titleInputElement = this.element.querySelector(
@@ -118,11 +119,13 @@ class ProjectInput {
       return [enteredTitle, enteredDescription, +enteredPeople];
     }
   }
+
   private clearInputs() {
     this.titleInputElement.value = "";
     this.descriptionInputElement.value = "";
     this.peopleInputElement.value = "";
   }
+
   @autobind
   private submitHandler(event: Event) {
     event.preventDefault();

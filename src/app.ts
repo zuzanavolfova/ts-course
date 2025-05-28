@@ -5,9 +5,9 @@ class ProjectInput {
 
   constructor() {
     this.templateElement = document.getElementById(
-      'project-input'
+      "project-input"
     )! as HTMLTemplateElement;
-    this.hostElement = document.getElementById('app')! as HTMLDivElement;
+    this.hostElement = document.getElementById("app")! as HTMLDivElement;
 
     const importedNode = document.importNode(
       this.templateElement.content,
@@ -16,9 +16,8 @@ class ProjectInput {
     this.element = importedNode.firstElementChild as HTMLFormElement;
     this.attach();
   }
-
   private attach() {
-    this.hostElement.insertAdjacentElement('afterbegin', this.element);
+    this.hostElement.insertAdjacentElement("afterbegin", this.element);
   }
 }
 

@@ -1,4 +1,4 @@
-//Validation
+// Validation
 interface Validatable {
   value: string | number;
   required?: boolean;
@@ -96,7 +96,7 @@ class ProjectInput {
       value: enteredTitle,
       required: true,
     };
-    const describtionValidatable: Validatable = {
+    const descriptionValidatable: Validatable = {
       value: enteredTitle,
       required: true,
       minLength: 5,
@@ -109,7 +109,7 @@ class ProjectInput {
     };
     if (
       validate(titleValidatable) ||
-      validate(describtionValidatable) ||
+      validate(descriptionValidatable) ||
       validate(peopleValidatable)
     ) {
       alert("Invalit input");
@@ -118,7 +118,7 @@ class ProjectInput {
       return [enteredTitle, enteredDescription, +enteredPeople];
     }
   }
-  private clearIputs() {
+  private clearInputs() {
     this.titleInputElement.value = "";
     this.descriptionInputElement.value = "";
     this.peopleInputElement.value = "";
@@ -130,7 +130,7 @@ class ProjectInput {
     if (Array.isArray(userInput)) {
       const [title, desc, people] = userInput;
       console.log(title, desc, people);
-      this.clearIputs();
+      this.clearInputs();
     }
   }
 

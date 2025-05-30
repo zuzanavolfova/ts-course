@@ -1,4 +1,7 @@
 /// <reference path="base-component.ts" />
+/// <reference path="../decorators/autobind.ts" />
+/// <reference path="../util/validation.ts" />
+/// <reference path="../state/project-state.ts" />
 
 namespace App {
   export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
@@ -26,7 +29,7 @@ namespace App {
 
     renderContent(): void {}
 
-    private gatherUserInput(): [string, string, number] | undefined {
+    private gatherUserInput(): [string, string, number] | void {
       const enteredTitle = this.titleInputElement.value;
       const enteredDescription = this.descriptionInputElement.value;
       const enteredPeople = this.peopleInputElement.value;
@@ -46,12 +49,13 @@ namespace App {
         min: 1,
         max: 5,
       };
+
       if (
         !validate(titleValidatable) ||
         !validate(descriptionValidatable) ||
         !validate(peopleValidatable)
       ) {
-        alert("Invalit input");
+        alert("Invalid input, please try again!");
         return;
       } else {
         return [enteredTitle, enteredDescription, +enteredPeople];
